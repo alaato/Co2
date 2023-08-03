@@ -17,7 +17,7 @@ main().catch(err => console.log(err));
 
 async function main() {
   try {
-    await mongoose.connect(process.env.MONGODB);
+    await mongoose.connect("mongodb+srv://toalaa9:P5iWY2WEv5iVtq9C@cluster0.rpmdryb.mongodb.net/?retryWrites=true&w=majority");
   } catch (error) {
     console.log(error);
   }}
