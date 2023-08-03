@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CO2 Visualization</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    #co2-value {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    #co2-status {
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <h1>CO2 Visualization</h1>
+  <div id="co2-value">Loading...</div>
+  <div id="co2-status">Status: Loading...</div>
+
+  <script>
+    // Function to update CO2 value and status
+    function updateCO2(value) {
+      const co2ValueElement = document.getElementById("co2-value");
+      const co2StatusElement = document.getElementById("co2-status");
+      co2ValueElement.textContent = `CO2 Value: ${value} ppm`;
+
+      if (value >= 400 && value <= 1000) {
+        co2StatusElement.textContent = "Status: Good (Healthy/Productive)";
+        co2StatusElement.style.color = "green";
+      } else {
+        co2StatusElement.textContent = "Status: High (Too High)";
+        co2StatusElement.style.color = "red";
+      }
+    }
+
+    // Function to simulate CO2 measurements
+    function generateRandomCO2Value() {
+      const minCO2 = 400;
+      const maxCO2 = 3500;
+      const randomCO2 = Math.floor(Math.random() * (maxCO2 - minCO2 + 1)) + minCO2;
+      updateCO2(randomCO2);
+    }
+
+    // Update CO2 value every 10 seconds
+    setInterval(generateRandomCO2Value, 10000);
+  </script>
+</body>
+</html>
