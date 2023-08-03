@@ -63,8 +63,6 @@ app.get('/api/data', async(req, res) => {
 // send CO2 values to the client every 10 seconds
 setInterval(async() => {
   const data = new Data(makeData())
-  console.log(data)
-
   await data.save();
 }, 10000);
 
