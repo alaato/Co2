@@ -24,8 +24,18 @@ export default function Home (options) {
     });
   };
 
+  
   // Socket.IO setup
   useEffect(() => {
+    fetch('http://localhost:3001/api/data')
+      .then((response) => response.json())
+      .then((data) => {
+        setData(data); // Set the initial data to the state
+      })
+      .catch((error) => {
+        console.error('Error fetching initial data from backend:', error);
+      });
+
     const socket = io('http://localhost:3001');
     socket.on('data', (data) => {
       updateData(data);

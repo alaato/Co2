@@ -4,6 +4,8 @@ const app = express();
 const http = require('http');
 const server = http.createServer(app);
 const { Server } = require("socket.io");
+const cors = require('cors');
+app.use(cors());
 const io = new Server(server, {
   cors: {
     origin: '*'
@@ -35,6 +37,15 @@ const makeData = function()
 }
 
 
+app.get('/api/data', (req, res) => {
+  const data = [];
+  for(let i = 0; i <10; i++)
+  {
+    data.push(makeData());
+  }
+  console
+  res.json(data);
+})
 
 // Send CO2 values to all connected clients every 10 seconds
 setInterval(async() => {
