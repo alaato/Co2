@@ -19,7 +19,7 @@ async function main() {
   try {
     await mongoose.connect(process.env.MONGODB);
   } catch (error) {
-    handleError(error);
+    console.log(error);
   }}
 
 // creating a model for the readings collection
@@ -56,14 +56,20 @@ const makeData = function()
 
 
 app.get('/api/data', async(req, res) => {
-  const data = await Data.find({}).sort({_id:-1}).limit(10).exec();
-  res.json(data);
+  try {
+    const data = await Data.find({}).sort({_id:-1}).limit(10).exec();
+    res.json(data);
+
+  } catch (error) {
+    console.log(error);
+  }
 })
 
 // send CO2 values to the client every 10 seconds
 setInterval(async() => {
   const data = new Data(makeData())
   await data.save();
+  await Data.deleteMany({}).limit(10).exec();
 }, 10000);
 
 // start the server

@@ -4,7 +4,6 @@ import Chart from './Chart'
 
 const qualityColor = function (quality)
 {
-    console.log(quality)
 if (quality == 'Good') return 'green';
 else if (quality == 'Bad')return 'red';
 else if (quality == 'Average') return 'yellow';
@@ -29,7 +28,7 @@ export default function Home (options) {
   
   // Socket.IO setup
   useEffect(() => {
-    fetch('https://co2-meaurement.onrender.com/api/data')
+    fetch('http://localhost:3001/api/data')
       .then((response) => response.json())
       .then((data) => {
         setData(data); // Set the initial data to the state
@@ -38,7 +37,7 @@ export default function Home (options) {
         console.error('Error fetching initial data from backend:', error);
       });
 
-    const socket = io('https://co2-meaurement.onrender.com');
+    const socket = io('http://localhost:3001');
     socket.on('data', (data) => {
       updateData(data);
     });
