@@ -14,8 +14,10 @@ else return '';
 
 export default function Home (options) {
     const [data, setData] = useState([]);
-  let CurrentData = data[data.length - 1] || null ;
-  // Function to update the CO2 values on new data
+
+    let CurrentData = data[data.length - 1] || null ;
+
+  //  update the CO2 value on new data
   const updateData = (newValue) => {
     setData((prevValues) => {
       if (prevValues.length > 9)

@@ -38,8 +38,23 @@ p
 {
   margin-bottom: 0px;
   padding: 0px;
+  color: white;
 }
-.red
-{color: red;}
+.red{color: red;}
 .green {color: green;}
 .yellow {color: yellow;}
+.custom-tooltip
+{
+  opacity: 0.7;
+  padding: 0px;
+  background-color: white;
+  border:1px solid white;
+  color: black;
+}
+.text
+{
+  padding: 3px;
+margin: 3px;
+color: black !important;
+font-size: 1rem;
+}

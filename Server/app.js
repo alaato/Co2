@@ -12,7 +12,7 @@ const io = new Server(server, {
   }
 });
 
-// Function to generate random CO2 values between 400 and 3500 ppm
+// generate a random CO2 value between 400 and 3500 ppm
 function randomPpm() {
   return Math.floor(Math.random() * (3500 - 400 + 1)) + 400;
 }
@@ -27,6 +27,7 @@ const checkQuality = function(reading)
         return 'Bad'
 }
 
+// generate an object containaing all the data
 const makeData = function()
 {
   const reading = randomPpm();
@@ -47,13 +48,13 @@ app.get('/api/data', (req, res) => {
   res.json(data);
 })
 
-// Send CO2 values to all connected clients every 10 seconds
+// send CO2 values to the client every 10 seconds
 setInterval(async() => {
   const data = makeData();
   io.emit('data', data);
 }, 10000);
 
-// Start the server
+// start the server
 server.listen(3001, () => {
   console.log('Backend server started on http://localhost:3001');
 });
