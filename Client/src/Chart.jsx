@@ -1,5 +1,18 @@
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
+const CustomTooltip = ({ active, payload,  }) => {
+    if (active && payload && payload.length) {
+      return (
+        <div className="custom-tooltip">
+          <p className="label">{` ${payload[0].value} ${payload[0].payload.quality} `}</p>
+        </div>
+      );
+    }
+  
+    return null;
+  };
+  
+
 export default function Chart ({data}) {
     return (
 <LineChart
@@ -16,7 +29,7 @@ export default function Chart ({data}) {
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="date" />
           <YAxis />
-          <Tooltip />
+          <Tooltip content={<CustomTooltip/>} />
           <Legend />
           <Line type="monotone" dataKey="reading" stroke="#8884d8" activeDot={{ r: 8 }} />
         </LineChart>

@@ -20,17 +20,18 @@ function randomPpm() {
 const checkQuality = function(reading)
 {
     if(reading <= 1000)
-        return 'good'
+        return 'Good'
     else if(reading > 1000 && reading <= 2000)
-        return 'average'
+        return 'Average'
     else if(reading > 2000)
-        return 'bad'
+        return 'Bad'
 }
 
 const makeData = function()
 {
   const reading = randomPpm();
   const quality = checkQuality(reading);
+  console.log(quality)
   const date = new Date(Date.now()).toUTCString().slice(4, -4).replace('2023', '');
   const data = {reading: reading, quality: quality, date: date}
   return data;

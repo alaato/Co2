@@ -4,9 +4,10 @@ import Chart from './Chart'
 
 const qualityColor = function (quality = '')
 {
-if (quality == 'good') return 'green';
-else if (quality == 'bad')return 'red';
-else if (quality == 'average') return 'yellow';
+    console.log(quality)
+if (quality == 'Good') return 'green';
+else if (quality == 'Bad')return 'red';
+else if (quality == 'Average') return 'yellow';
 else return '';
 }
 
@@ -50,7 +51,7 @@ export default function Home (options) {
       <h1>CO2 Visualization</h1>
 
       <h3>
-        Current reading is : {data[data.length-1] ? data[data.length-1].reading:'loading' } ppm
+        Current reading is : {CurrentData ? CurrentData.reading:'loading' } ppm
         </h3>
 
       <h3>
