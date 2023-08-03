@@ -23,7 +23,7 @@ async function main() {
   }}
 
 // creating a model for the readings collection
-const Data = mongoose.model('reading', {reading: Number, quality: String, date: String});
+const Data = mongoose.model('Data', {reading: Number, quality: String, date: String});
 
 Data.watch().on("change", data => {
         io.emit('data', data.fullDocument);
@@ -71,7 +71,7 @@ setInterval(async() => {
 
   try{
     const data = new Data(makeData())
-  await data.save();
+    await data.save();
   }
   catch(error) {
   {
