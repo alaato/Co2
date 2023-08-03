@@ -69,7 +69,6 @@ app.get('/api/data', async(req, res) => {
 setInterval(async() => {
   const data = new Data(makeData())
   await data.save();
-  await Data.deleteMany({}).limit(10).exec();
 }, 10000);
 
 // start the server
