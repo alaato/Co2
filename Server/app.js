@@ -47,7 +47,7 @@ const makeData = function()
 {
   const reading = randomPpm();
   const quality = checkQuality(reading);
-  const date = new Date(Date.now()).toUTCString().slice(4, -5).replace('2023', '');
+  const date = new Date(Date.now()).toUTCString().slice(4, -4).replace('2023', '');
   const data = {reading: reading, quality: quality, date: date}
   return data;
 }
