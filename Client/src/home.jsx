@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import io from 'socket.io-client';
 import Chart from './Chart'
 
-const qualityColor = function (quality = '')
+const qualityColor = function (quality)
 {
     console.log(quality)
 if (quality == 'Good') return 'green';
