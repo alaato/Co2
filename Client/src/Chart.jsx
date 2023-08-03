@@ -1,10 +1,9 @@
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-
 const CustomTooltip = ({ active, payload,  }) => {
     if (active && payload && payload.length) {
       return (
         <div className="custom-tooltip">
-          <p className="label">{` ${payload[0].value} ${payload[0].payload.quality} `}</p>
+          <p className="text">{`${payload[0].value} ${payload[0].payload.quality}`}</p>
         </div>
       );
     }
