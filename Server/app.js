@@ -16,11 +16,9 @@ const io = new Server(server, {
 main().catch(err => console.log(err));
 
 async function main() {
-  try {
+
     await mongoose.connect("mongodb+srv://toalaa9:P5iWY2WEv5iVtq9C@cluster0.rpmdryb.mongodb.net/?retryWrites=true&w=majority");
-  } catch (error) {
-    console.log(error);
-  }}
+  }
 
 // creating a model for the readings collection
 const Data = mongoose.model('Data', {reading: Number, quality: String, date: String});
@@ -49,7 +47,7 @@ const makeData = function()
 {
   const reading = randomPpm();
   const quality = checkQuality(reading);
-  const date = new Date(Date.now()).toString().slice(4, -40).replace('2023', '');
+  const date = new Date(Date.now()).toString().slice(4, -38).replace('2023', '');
   const data = {reading: reading, quality: quality, date: date}
   return data;
 }
