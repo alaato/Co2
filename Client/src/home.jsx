@@ -28,7 +28,7 @@ export default function Home (options) {
   
   // Socket.IO setup
   useEffect(() => {
-    fetch('http://localhost:3001/api/data')
+    fetch('https://co2-meaurement.onrender.com/api/data')
       .then((response) => response.json())
       .then((data) => {
         setData(data); // Set the initial data to the state
@@ -37,7 +37,7 @@ export default function Home (options) {
         console.error('Error fetching initial data from backend:', error);
       });
 
-    const socket = io('http://localhost:3001');
+    const socket = io('https://co2-meaurement.onrender.com');
     socket.on('data', (data) => {
       updateData(data);
     });

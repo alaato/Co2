@@ -58,6 +58,7 @@ const makeData = function()
 app.get('/api/data', async(req, res) => {
   try {
     const data = await Data.find({}).sort({_id:-1}).limit(10).exec();
+    data.reverse()
     res.json(data);
 
   } catch (error) {
@@ -67,8 +68,16 @@ app.get('/api/data', async(req, res) => {
 
 // send CO2 values to the client every 10 seconds
 setInterval(async() => {
-  const data = new Data(makeData())
+
+  try{
+    const data = new Data(makeData())
   await data.save();
+  }
+  catch(error) {
+  {
+    console.log(error);
+  }
+}
 }, 10000);
 
 // start the server
