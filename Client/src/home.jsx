@@ -62,6 +62,7 @@ export default function Home (options) {
         </h3>
        <Chart data={data}/>
        <p>*mesurments are taken every 10 seconds</p>
+       <p>* GMT TIME </p>
     </div>
   );
 }
