@@ -29,8 +29,15 @@ h1 {
 }
 h3
 {
+  margin: 0 0 10px 0;
+  font-size: 1.5rem;
   font-family: 'Domine', serif;
 font-family: 'EB Garamond', serif;
+}
+p
+{
+  margin-bottom: 0px;
+  padding: 0px;
 }
 .red
 {color: red;}

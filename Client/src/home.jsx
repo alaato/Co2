@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
 import io from 'socket.io-client';
 import Chart from './Chart'
 
@@ -51,7 +50,7 @@ export default function Home (options) {
       <h1>CO2 Visualization</h1>
 
       <h3>
-        Current reading is : {data[data.length-1] ? data[data.length-1].reading:'loading' }
+        Current reading is : {data[data.length-1] ? data[data.length-1].reading:'loading' } ppm
         </h3>
 
       <h3>
